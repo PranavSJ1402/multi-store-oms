@@ -1,0 +1,56 @@
+version: '3.8'
+
+# NOTE: For local development, use XAMPP's MySQL (already running on port 3306).
+# This Docker Compose file provides a MySQL container as an alternative
+# when not using XAMPP (e.g. CI, deployment).
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: multi-store-oms-db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: oms
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ppassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: multi-store-oms-backend
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: mysql://root:password@db:3306/oms
+      PORT: 5000
+      CORS_ORIGIN: http://localhost:3000
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: multi-store-oms-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:5000/api
+      NEXT_PUBLIC_SOCKET_URL: http://localhost:5000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  mysqldata:

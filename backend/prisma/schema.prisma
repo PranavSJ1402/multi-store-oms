@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Store {
+  id        String   @id @default(uuid()) @db.Char(36)
+  name      String   @db.VarChar(100)
+  password  String   @db.VarChar(255)
+  address   String?  @db.VarChar(255)
+  phone     String?  @db.VarChar(50)
+  email     String   @unique @db.VarChar(255)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  products  Product[]
+
+  @@map("stores")
+}
+
+model Product {
+  id          String   @id @default(uuid()) @db.Char(36)
+  storeId     String   @map("store_id") @db.VarChar(36)
+  name        String   @db.VarChar(100)
+  price       Float
+  description String?  @db.Text
+  category    String?  @db.VarChar(100)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  store       Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@index([storeId])
+  @@map("products")
+}
+
+model User {
+  id        String   @id @default(uuid()) @db.Char(36)
+  name      String   @db.VarChar(100)
+  email     String   @unique @db.VarChar(255)
+  password  String   @db.VarChar(255)
+  role      String   @default("USER") @db.VarChar(20)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Order {
+  id          String   @id @default(uuid()) @db.Char(36)
+  orderNumber Int      @unique @default(autoincrement()) @map("order_number")
+  storeId     String   @map("store_id") @db.VarChar(100)
+  userId      String?  @map("user_id") @db.Char(36)
+  items       Json
+  totalAmount Float    @map("total_amount")
+  status      String   @default("PLACED") @db.VarChar(20)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([storeId])
+  @@index([createdAt])
+  @@map("orders")
+}
+
+model OrderArchive {
+  id          String   @id @db.Char(36)
+  orderNumber Int      @map("order_number")
+  storeId     String   @map("store_id") @db.VarChar(100)
+  userId      String?  @map("user_id") @db.Char(36)
+  items       Json
+  totalAmount Float    @map("total_amount")
+  status      String   @db.VarChar(20)
+  createdAt   DateTime @map("created_at")
+  archivedAt  DateTime @default(now()) @map("archived_at")
+
+  @@index([storeId])
+  @@map("orders_archive")
+}
