@@ -59,7 +59,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   return (
     <ToastContext.Provider value={{ toast }}>
       {children}
-      {/* Toast container */}
+
       <div
         className="fixed bottom-5 right-5 z-[9999] flex flex-col gap-2 max-w-sm pointer-events-none"
         aria-live="polite"
@@ -81,18 +81,18 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
                 c.border
               )}
             >
-              {/* Icon */}
+
               <div className={cn('w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center text-sm font-bold border', c.iconBg, c.iconColor)}>
                 {iconMap[t.type]}
               </div>
-              {/* Content */}
+
               <div className="flex-1 min-w-0">
                 {t.title && (
                   <div className="font-semibold text-sm text-gray-900 dark:text-[#eeeef6] mb-0.5">{t.title}</div>
                 )}
                 <div className="text-[0.85rem] text-gray-500 dark:text-[#8888a8] leading-snug">{t.message}</div>
               </div>
-              {/* Dismiss */}
+
               <button
                 onClick={() => setToasts((prev) => prev.filter((item) => item.id !== t.id))}
                 className="flex-shrink-0 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 cursor-pointer bg-transparent border-none p-0.5 text-sm leading-none"

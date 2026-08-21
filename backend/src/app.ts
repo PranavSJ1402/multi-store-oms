@@ -35,10 +35,8 @@ app.use(express.json());
 // Health check — public
 app.get('/health', (_req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
 
-// ── Public routes (no auth required) ────────────────────────────────────────
 app.use('/api/auth', authRoutes);
 
-// ── Protected routes (valid JWT required) ───────────────────────────────────
 app.use('/api/orders', authenticate, orderRoutes);
 app.use('/api/products', productRoutes);
 

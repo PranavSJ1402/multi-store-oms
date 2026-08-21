@@ -89,7 +89,7 @@ export default function CreateOrderPage() {
 
   return (
     <div className="pb-20">
-      {/* Consumer Hero Section */}
+
       <div className="bg-[#0f172a] text-white py-16 px-8 mb-10 md:rounded-3xl shadow-xl max-w-7xl mx-auto mt-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 justify-between items-center relative z-10">
@@ -104,8 +104,7 @@ export default function CreateOrderPage() {
                 : 'Select a kitchen from below to view their exclusive menu and start your order.'}
             </p>
           </div>
-            
-          {/* Store Selector Component */}
+
           <div className="w-full md:w-80 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-2xl">
             <label className="block text-xs font-bold uppercase tracking-widest text-white/70 mb-2">Select a Kitchen</label>
             {storesLoading ? (
@@ -130,8 +129,7 @@ export default function CreateOrderPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-8 relative">
-        
-        {/* Left Column: Menu Items */}
+
         <div className="flex-1">
           {!selectedStoreId ? (
             <div className="text-center py-20 bg-gray-50 dark:bg-[#0f0f15] rounded-3xl border border-dashed border-gray-300 dark:border-gray-800">
@@ -198,12 +196,10 @@ export default function CreateOrderPage() {
           )}
         </div>
 
-        {/* Right Column: Floating Sticky Cart */}
         <div className="md:w-80 lg:w-[350px] shrink-0 relative">
           <div className={`sticky top-24 transition-all duration-500 ${selectedStoreId ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
             <div className="bg-white dark:bg-[#0b0b10] border border-gray-200 dark:border-gray-800 rounded-3xl p-6 shadow-2xl flex flex-col max-h-[80vh] relative overflow-hidden">
-              
-              {/* Subtle gradient overlay at top of cart */}
+
               <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-indigo-500 to-purple-500" />
               
               <h2 className="text-xl font-black text-gray-900 dark:text-white mb-5 pb-5 border-b border-gray-100 dark:border-gray-800/80 flex items-center gap-3">

@@ -36,7 +36,7 @@ export default function StoreDashboard() {
 
   return (
     <div className="pb-20">
-      {/* Merchant Dashboard Header */}
+
       <div className="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#12121a] mb-8">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
@@ -64,8 +64,7 @@ export default function StoreDashboard() {
       </div>
       
       <div className="max-w-6xl mx-auto px-6">
-        
-        {/* Metric Grid */}
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
           
           <Card className="p-6 md:col-span-2 shadow-sm bg-white dark:bg-[#12121a]">

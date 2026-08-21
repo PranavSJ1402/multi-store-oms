@@ -56,7 +56,7 @@ async function fetchJSON<T>(url: string, options: RequestInit = {}): Promise<T> 
 }
 
 export const api = {
-  // ── Auth ────────────────────────────────────────────────────────────────────
+
   login: (email: string, password: string): Promise<{ data: AuthResponse; message: string }> =>
     fetchJSON(`${BASE_URL}/auth/login`, {
       method: 'POST',
@@ -72,7 +72,6 @@ export const api = {
   getMe: (): Promise<{ data: User }> =>
     fetchJSON(`${BASE_URL}/auth/me`),
 
-  // ── Orders ──────────────────────────────────────────────────────────────────
   getOrders: (storeId: string, page = 1, limit = 10): Promise<PaginatedResponse<Order>> =>
     fetchJSON(`${BASE_URL}/orders?store_id=${storeId}&page=${page}&limit=${limit}`, {
       cache: 'no-store',
@@ -97,7 +96,6 @@ export const api = {
       body: JSON.stringify({ status }),
     }),
 
-  // ── Analytics ───────────────────────────────────────────────────────────────
   getOrdersPerDay: (): Promise<{ data: OrdersPerDay[] }> =>
     fetchJSON(`${BASE_URL}/analytics/orders-per-day`, { cache: 'no-store' }),
 
@@ -107,11 +105,9 @@ export const api = {
   getTopItems: (): Promise<{ data: TopItem[] }> =>
     fetchJSON(`${BASE_URL}/analytics/top-items`, { cache: 'no-store' }),
 
-  // ── Archive ─────────────────────────────────────────────────────────────────
   archiveOldOrders: (): Promise<{ data: { archivedCount: number }; message: string }> =>
     fetchJSON(`${BASE_URL}/archive/archive-old-orders`, { method: 'POST' }),
 
-  // ── Stores & Products ───────────────────────────────────────────────────────
   getStores: (): Promise<{ data: any[] }> =>
     fetchJSON(`${BASE_URL}/stores`, { cache: 'no-store' }),
 

@@ -33,7 +33,7 @@ export function ArchiveActions() {
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Description */}
+
       <Card className="p-5">
         <h3 className="font-semibold mb-2 text-gray-900 dark:text-white">Archive Old Orders</h3>
         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
@@ -44,7 +44,6 @@ export function ArchiveActions() {
         </p>
       </Card>
 
-      {/* Steps */}
       <Card className="p-5">
         <div className="text-[0.72rem] font-semibold tracking-wider uppercase text-gray-500 dark:text-gray-400 mb-3.5">
           How it works
@@ -66,7 +65,6 @@ export function ArchiveActions() {
         </div>
       </Card>
 
-      {/* Result */}
       {result && (
         <div className={`px-4 py-3.5 rounded-lg border text-sm bg-white dark:bg-[#12121a] border-l-[3px] ${
           result.archivedCount > 0 
@@ -80,7 +78,6 @@ export function ArchiveActions() {
         </div>
       )}
 
-      {/* Action */}
       <div>
         <Button
           onClick={handleArchive}

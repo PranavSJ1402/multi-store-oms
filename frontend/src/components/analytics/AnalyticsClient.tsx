@@ -46,7 +46,7 @@ export function AnalyticsClient({ ordersPerDay, revenuePerStore, topItems }: Pro
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Summary stats */}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <MiniStat label="Total Orders (30d)" value={String(totalOrders)} icon="📦" />
         <MiniStat label="Total Revenue" value={`₹${totalRevenue.toFixed(2)}`} icon="💰" />
@@ -54,7 +54,6 @@ export function AnalyticsClient({ ordersPerDay, revenuePerStore, topItems }: Pro
         <MiniStat label="Top Selling Item" value={topItem} icon="🔥" />
       </div>
 
-      {/* Orders Per Day Chart */}
       {ordersPerDay.length > 0 && (
         <Card className="p-6">
           <SectionTitle>Orders Per Day (Last 30 Days)</SectionTitle>
@@ -98,7 +97,6 @@ export function AnalyticsClient({ ordersPerDay, revenuePerStore, topItems }: Pro
                       })}
                     </svg>
 
-                    {/* Labels */}
                     <div className="absolute top-[150px] left-0 w-full flex justify-between mt-2">
                       {orderedDays.map((day, i) => {
                         const x = orderedDays.length > 1 ? (i / (orderedDays.length - 1)) * 100 : 50;
@@ -121,7 +119,6 @@ export function AnalyticsClient({ ordersPerDay, revenuePerStore, topItems }: Pro
         </Card>
       )}
 
-      {/* Revenue Per Store */}
       {revenuePerStore.length > 0 && (
         <Card className="p-6">
           <SectionTitle>Revenue Per Store</SectionTitle>
@@ -157,7 +154,6 @@ export function AnalyticsClient({ ordersPerDay, revenuePerStore, topItems }: Pro
         </Card>
       )}
 
-      {/* Top 5 Selling Items */}
       {topItems.length > 0 && (
         <Card className="p-6">
           <SectionTitle>Top 5 Selling Items</SectionTitle>
