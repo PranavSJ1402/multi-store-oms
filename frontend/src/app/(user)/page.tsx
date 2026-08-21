@@ -48,7 +48,7 @@ export default function UserDashboardPage() {
 
   return (
     <div className="animate-fade-in pb-12">
-      {/* Consumer Hero Section */}
+
       <div className="bg-[#0f172a] text-white py-16 px-8 mb-10 md:rounded-3xl shadow-xl max-w-7xl mx-auto mt-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px]" />
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -74,7 +74,6 @@ export default function UserDashboardPage() {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-end mb-8 border-b border-gray-200 dark:border-gray-800 pb-4">
           <div>
@@ -101,12 +100,10 @@ export default function UserDashboardPage() {
               <Link key={store.id} href={`/${store.id}/menu`} className="block group h-full">
                 <Card className="p-0 overflow-hidden h-full flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 border border-gray-200 dark:border-gray-800/60 bg-white dark:bg-[#12121a]">
 
-                  {/* Card Cover Photo/Gradient */}
                   <div className="h-24 bg-indigo-50 dark:bg-indigo-900/20 border-b border-indigo-100 dark:border-indigo-500/20 relative flex items-center justify-center transition-colors group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/40">
                     <span className="text-3xl">🏪</span>
                   </div>
 
-                  {/* Card Body */}
                   <div className="p-6 pt-10 flex-1 flex flex-col">
                     <h3 className="text-xl font-black text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {store.name}

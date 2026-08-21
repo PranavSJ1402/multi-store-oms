@@ -50,7 +50,7 @@ export default function MenuPage() {
 
   return (
     <div className="pb-20">
-      {/* Simple Header */}
+
       <div className="bg-slate-900 text-white py-12 px-6 mb-10 shadow-sm">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 justify-between items-center">
           <div className="flex-1 w-full">

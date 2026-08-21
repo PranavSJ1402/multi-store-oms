@@ -96,7 +96,7 @@ export function OrdersClient({ initialData, initialStoreId }: Props) {
 
   return (
     <div className="animate-fade-in flex flex-col gap-6">
-      {/* Header */}
+
       <div className="flex justify-between items-start flex-wrap gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
@@ -123,7 +123,6 @@ export function OrdersClient({ initialData, initialStoreId }: Props) {
           </p>
         </div>
 
-        {/* Actions */}
         <div className="flex gap-2.5 items-center flex-wrap">
           {user?.role === 'SUPER_ADMIN' && (
             <select
@@ -176,7 +175,6 @@ export function OrdersClient({ initialData, initialStoreId }: Props) {
         </div>
       </div>
 
-      {/* Orders Table */}
       <Card className="p-0 overflow-hidden" hover={false}>
         {isLoading ? (
           <div className="flex justify-center items-center p-16 gap-3 text-gray-400 dark:text-gray-500">
@@ -332,7 +330,6 @@ export function OrdersClient({ initialData, initialStoreId }: Props) {
           </div>
         )}
 
-        {/* Pagination */}
         {meta && meta.totalPages > 1 && (
           <div className="flex justify-between items-center px-5 py-4 border-t border-gray-200 dark:border-white/[0.07]">
             <span className="text-[0.85rem] text-gray-500 dark:text-gray-400">

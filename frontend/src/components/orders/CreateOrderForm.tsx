@@ -71,7 +71,6 @@ export function CreateOrderForm() {
           <p className="text-sm text-gray-500">Completing order for store: {storeId}</p>
         </div>
 
-        {/* Items */}
         <div>
           <div className="flex justify-between items-center mb-3">
             <label className="block text-[0.85rem] font-semibold text-gray-500 dark:text-gray-400 tracking-wide">Order Items</label>
@@ -127,7 +126,6 @@ export function CreateOrderForm() {
           </div>
         </div>
 
-        {/* Total Amount */}
         <div>
           <label htmlFor="total-amount" className="block text-[0.85rem] font-semibold text-gray-500 dark:text-gray-400 tracking-wide mb-1.5">Total Amount (₹)</label>
           <input
@@ -143,7 +141,6 @@ export function CreateOrderForm() {
           />
         </div>
 
-        {/* Submit */}
         <div className="flex justify-end gap-3 pt-2 border-t border-gray-200 dark:border-white/[0.07]">
           <Button type="button" variant="secondary" onClick={() => router.back()}>
             Cancel

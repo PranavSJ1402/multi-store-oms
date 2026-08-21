@@ -67,7 +67,7 @@ export default function StoreMenuManagement() {
       <p className="text-gray-500 dark:text-gray-400 mb-8">Add new items to your menu and manage existing ones.</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Column: Form */}
+
         <div className="lg:col-span-1">
           <Card className="p-6 sticky top-24">
             <h2 className="text-lg font-semibold mb-6">Create New Item</h2>
@@ -125,7 +125,6 @@ export default function StoreMenuManagement() {
           </Card>
         </div>
 
-        {/* Right Column: Menu List */}
         <div className="lg:col-span-2">
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

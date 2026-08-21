@@ -86,7 +86,6 @@ export default function OrderDetailsPage() {
   return (
     <div className="max-w-3xl mx-auto py-12 px-6 animate-fade-in flex flex-col gap-10">
 
-      {/* Header Area */}
       <div className="flex flex-col gap-6">
         <button
           onClick={() => router.push('/orders')}
@@ -118,7 +117,6 @@ export default function OrderDetailsPage() {
 
       <div className="flex flex-col gap-10">
 
-        {/* Order Progress Stepper */}
         <div className="w-full py-6">
           <div className="flex items-center justify-between relative">
             <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-gray-200 dark:bg-gray-800 rounded-full z-0"></div>
@@ -177,7 +175,6 @@ export default function OrderDetailsPage() {
           </div>
         </div>
 
-        {/* Main Details */}
         <div>
           <h3 className="text-xs font-bold tracking-widest text-gray-400 uppercase mb-4">Order Items</h3>
 
@@ -203,7 +200,6 @@ export default function OrderDetailsPage() {
           )}
         </div>
 
-        {/* Summary Area */}
         <div className="flex justify-end pt-4">
           <div className="w-full sm:w-1/2 flex justify-between items-center bg-gray-50 dark:bg-white/[0.02] p-5 rounded-lg">
             <span className="text-gray-500 font-medium">Total Amount</span>

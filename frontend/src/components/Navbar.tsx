@@ -20,14 +20,13 @@ export function Navbar() {
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
-        {/* Logo */}
+
         <Link href="/" className="flex items-center gap-2 no-underline">
           <span className="font-bold text-[1rem] tracking-tight text-gray-900 dark:text-white">
             ⚡ <span className="text-gradient">OMS</span>
           </span>
         </Link>
 
-        {/* Nav Links */}
         {!isAuthPage && (
           <div className="flex items-center gap-0.5">
             {(!user || user.role === 'USER') && (
@@ -56,7 +55,6 @@ export function Navbar() {
           </div>
         )}
 
-        {/* Right side — theme toggle + user menu */}
         <div className="flex items-center gap-3">
           <ThemeToggle />
           {!isAuthPage && (

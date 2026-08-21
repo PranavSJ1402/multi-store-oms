@@ -20,7 +20,7 @@ export function UserMenu() {
 
   return (
     <div className="flex items-center gap-2.5">
-      {/* Role badge */}
+
       <span className={cn(
         'text-[0.68rem] font-bold tracking-widest px-2 py-0.5 rounded-full border',
         isAdmin
@@ -30,12 +30,10 @@ export function UserMenu() {
         {user.role}
       </span>
 
-      {/* User name */}
       <span className="text-[0.85rem] text-gray-600 dark:text-gray-400 font-medium hidden sm:block">
         {user.name}
       </span>
 
-      {/* Logout button */}
       <button
         onClick={handleLogout}
         className="

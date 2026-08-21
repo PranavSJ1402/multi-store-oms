@@ -13,8 +13,6 @@ export interface JwtPayload {
   storeId?: string;
 }
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
-
 export const hashPassword = (plain: string) => bcrypt.hash(plain, SALT_ROUNDS);
 
 export const verifyPassword = (plain: string, hash: string) =>
@@ -25,8 +23,6 @@ export const signToken = (payload: JwtPayload): string =>
 
 export const verifyToken = (token: string): JwtPayload =>
   jwt.verify(token, env.JWT_SECRET) as JwtPayload;
-
-// ── Service methods ──────────────────────────────────────────────────────────
 
 export const registerUser = async (input: RegisterInput) => {
   const existingUser = await prisma.user.findUnique({ where: { email: input.email } });
@@ -136,9 +132,6 @@ export const getMe = async (userId: string) => {
   if (!user) throw new Error('USER_NOT_FOUND');
   return user;
 };
-
-// ── Admin seed ───────────────────────────────────────────────────────────────
-// Called once at server startup — creates a default ADMIN if none exists.
 
 export const seedAdmin = async () => {
   const existing = await prisma.user.findUnique({ where: { email: 'admin@oms.com' } });

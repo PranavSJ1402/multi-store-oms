@@ -26,7 +26,7 @@ export function HomeDashboard({ revenueData, topItems, totalRevenue, totalStores
 
   return (
     <div className="animate-fade-in flex flex-col gap-7">
-      {/* Header */}
+
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-[#eeeef6]">
           <span className="text-gradient">Multi-Store OMS</span>
@@ -36,14 +36,12 @@ export function HomeDashboard({ revenueData, topItems, totalRevenue, totalStores
         </p>
       </div>
 
-      {/* Quick Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <StatCard label="Total Revenue" value={`₹${totalRevenue.toFixed(2)}`} />
         <StatCard label="Active Stores" value={String(totalStores || '—')} />
         <StatCard label="Top Item" value={topItems[0]?.item_id || '—'} />
       </div>
 
-      {/* Revenue by Store */}
       {revenueData.length > 0 && (
         <div className="bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.07] rounded-xl p-5 transition-colors">
           <SectionLabel>Revenue by store</SectionLabel>
@@ -70,7 +68,6 @@ export function HomeDashboard({ revenueData, topItems, totalRevenue, totalStores
         </div>
       )}
 
-      {/* Quick Actions */}
       <div>
         <SectionLabel>Quick actions</SectionLabel>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-2.5">
